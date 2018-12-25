@@ -9,11 +9,7 @@ build:
 		-w /home/maven/project \
 		maven:3.6-jdk-8-alpine \
 		mvn clean install
-	docker build -t $(REPO)/$(NAME):$(VERSION) .
+	docker build -t $(REPO)/$(NAME):latest .
 
 clean:
 	rm -rf build/ out/ target/
-
-tag-latest:
-	docker tag $(REPO)/$(NAME):$(VERSION) $(REPO)/$(NAME):latest
-	docker push $(REPO)/$(NAME):latest
